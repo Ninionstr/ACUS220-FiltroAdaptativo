@@ -2,6 +2,7 @@ import os, sys
 import numpy as np
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
 from adaptive import atenuacion_db, lms, nlms, rls
+from metricas import tiempo_convergencia
 from signals import ruta_acustica, voz_sintetica, zumbido
 
 
@@ -29,3 +30,9 @@ def test_rls_cancela_zumbido():
     s, x, d, r = _caso()
     e, _ = rls(x, d, L=16)
     assert atenuacion_db(r[8000:], (e - s)[8000:]) > 20
+
+
+def test_nlms_mu_mayor_converge_mas_rapido():
+    s, x, d, r = _caso()
+    t = [tiempo_convergencia(r, nlms(x, d, L=32, mu=mu)[0] - s, 8000) for mu in (0.01, 0.1)]
+    assert t[1] < t[0]
