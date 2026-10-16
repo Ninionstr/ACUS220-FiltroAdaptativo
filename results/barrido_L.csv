@@ -1,0 +1,31 @@
+ruido,algoritmo,L,atenuacion_db,computo_s
+zumbido 50 Hz,LMS,4,14.71,0.042
+zumbido 50 Hz,LMS,8,16.48,0.042
+zumbido 50 Hz,LMS,16,14.76,0.044
+zumbido 50 Hz,LMS,32,12.84,0.045
+zumbido 50 Hz,LMS,64,11.27,0.045
+zumbido 50 Hz,NLMS,4,11.9,0.071
+zumbido 50 Hz,NLMS,8,13.62,0.067
+zumbido 50 Hz,NLMS,16,12.62,0.065
+zumbido 50 Hz,NLMS,32,12.34,0.068
+zumbido 50 Hz,NLMS,64,13.99,0.068
+zumbido 50 Hz,RLS,4,15.53,0.157
+zumbido 50 Hz,RLS,8,29.46,0.158
+zumbido 50 Hz,RLS,16,29.02,0.167
+zumbido 50 Hz,RLS,32,26.58,0.252
+zumbido 50 Hz,RLS,64,24.56,0.366
+"banda ancha (< 1,5 kHz)",LMS,4,8.56,0.047
+"banda ancha (< 1,5 kHz)",LMS,8,22.67,0.044
+"banda ancha (< 1,5 kHz)",LMS,16,24.98,0.047
+"banda ancha (< 1,5 kHz)",LMS,32,23.08,0.047
+"banda ancha (< 1,5 kHz)",LMS,64,20.78,0.049
+"banda ancha (< 1,5 kHz)",NLMS,4,9.6,0.07
+"banda ancha (< 1,5 kHz)",NLMS,8,18.32,0.069
+"banda ancha (< 1,5 kHz)",NLMS,16,19.99,0.069
+"banda ancha (< 1,5 kHz)",NLMS,32,20.09,0.069
+"banda ancha (< 1,5 kHz)",NLMS,64,20.02,0.072
+"banda ancha (< 1,5 kHz)",RLS,4,10.71,0.162
+"banda ancha (< 1,5 kHz)",RLS,8,27.1,0.165
+"banda ancha (< 1,5 kHz)",RLS,16,29.05,0.173
+"banda ancha (< 1,5 kHz)",RLS,32,26.56,0.251
+"banda ancha (< 1,5 kHz)",RLS,64,23.76,0.375
