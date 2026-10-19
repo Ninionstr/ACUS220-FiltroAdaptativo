@@ -6,12 +6,11 @@ import time
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-import numpy as np
 
 sys.path.insert(0, os.path.dirname(__file__))
 from adaptive import atenuacion_db, lms, nlms, rls
 from metricas import tiempo_convergencia
-from signals import ruido_banda_ancha, ruta_acustica, voz_sintetica, zumbido
+from signals import escenario, ruido_banda_ancha, voz_sintetica, zumbido
 
 fs, dur = 8000, 4
 LONGITUDES = [4, 8, 16, 32, 64]
@@ -35,15 +34,9 @@ s = voz_sintetica(dur, fs)
 m = slice(fs, None)
 
 
-def escenario(x):
-    ruido, _ = ruta_acustica(x, n_taps=N_TAPS_RUTA)
-    g = np.sqrt(10 * np.mean(s**2) / np.mean(ruido**2))
-    return g * x, g * ruido
-
-
 filas = []
 for nombre_ruido, x0 in RUIDOS.items():
-    x, ruido = escenario(x0)
+    x, ruido = escenario(s, x0, n_taps=N_TAPS_RUTA)
     d = s + ruido
     for nombre, f, kw in ALGORITMOS:
         for L in LONGITUDES:
@@ -82,7 +75,7 @@ fig.tight_layout()
 fig.savefig(os.path.join(dir_fig, "barrido_L.png"), dpi=120)
 plt.close(fig)
 
-x, ruido = escenario(RUIDOS["zumbido 50 Hz"])
+x, ruido = escenario(s, RUIDOS["zumbido 50 Hz"], n_taps=N_TAPS_RUTA)
 d = s + ruido
 filas_mu = []
 for mu in [0.005, 0.01, 0.02, 0.05, 0.1, 0.2, 0.5]:

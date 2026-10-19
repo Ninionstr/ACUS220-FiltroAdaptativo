@@ -37,3 +37,9 @@ def zumbido(dur, fs, f0=50, n_arm=5, seed=3):
     rng = np.random.default_rng(seed)
     x = sum(tono(f0 * k, dur, fs, 1.0 / k) for k in range(1, n_arm + 1))
     return x + 0.05 * rng.standard_normal(len(x))
+
+
+def escenario(s, x, ruido_sobre_voz_db=10, n_taps=16):
+    ruido, _ = ruta_acustica(x, n_taps=n_taps)
+    g = np.sqrt(10 ** (ruido_sobre_voz_db / 10) * np.mean(s**2) / np.mean(ruido**2))
+    return g * x, g * ruido
