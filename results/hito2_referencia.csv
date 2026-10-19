@@ -1,0 +1,16 @@
+snr_referencia_db,algoritmo,atenuacion_db
+inf,LMS,17.92
+inf,NLMS,20.38
+inf,RLS,29.09
+40,LMS,17.91
+40,NLMS,20.35
+40,RLS,28.89
+30,LMS,17.79
+30,NLMS,20.03
+30,RLS,27.1
+20,LMS,16.71
+20,NLMS,18.08
+20,RLS,21.16
+10,LMS,11.92
+10,NLMS,11.96
+10,RLS,12.52

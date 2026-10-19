@@ -1,0 +1,4 @@
+algoritmo,L,atenuacion_db,convergencia_s
+LMS,16,17.78,0.571
+NLMS,16,16.28,1.027
+RLS,16,29.14,0.504
